@@ -39,7 +39,7 @@ class RestockViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "stockTableCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stockTableCell")
         
         let product = products[indexPath.row]
         cell?.textLabel?.text = product.name
@@ -51,7 +51,7 @@ class RestockViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           // Update input field with current quantity of selected product
           let selectedProduct = products[indexPath.row]
-          quantityInputField.text = "\(selectedProduct.quantity)"
+
       }
     
     

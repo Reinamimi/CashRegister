@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     // Accessing the product array from the singleton
-    let products = ProductManager.shared.getAllProducts()
+    var products = ProductManager.shared.getAllProducts()
     
     // Array to hold purchases
     var history: [HistoryEntry] = []
@@ -41,6 +41,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 // Reload table view data after populating products
                 productsTable.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+//        refresh products table
+        products = ProductManager.shared.getAllProducts()
+        productsTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         selectedProductLabel.text = products[indexPath.row].name
         
     }
+    
+    
     
     
     @IBAction func digitClicked(_ sender: UIButton) {
