@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0482EE5C2B955A2500D950E9 /* productTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482EE5B2B955A2500D950E9 /* productTableViewCell.swift */; };
+		0482EE5E2B95702400D950E9 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482EE5D2B95702400D950E9 /* ManagerViewController.swift */; };
+		0482EE602B9579E700D950E9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482EE5F2B9579E700D950E9 /* HistoryViewController.swift */; };
+		0482EE622B95830D00D950E9 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482EE612B95830D00D950E9 /* HistoryEntry.swift */; };
+		0488AFE42B96904600D26B11 /* History_2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488AFE32B96904600D26B11 /* History_2_ViewController.swift */; };
 		04AD901F2B93C83E00ED4F10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD901E2B93C83E00ED4F10 /* AppDelegate.swift */; };
 		04AD90212B93C83E00ED4F10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD90202B93C83E00ED4F10 /* SceneDelegate.swift */; };
 		04AD90232B93C83E00ED4F10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD90222B93C83E00ED4F10 /* ViewController.swift */; };
@@ -17,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0482EE5B2B955A2500D950E9 /* productTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productTableViewCell.swift; sourceTree = "<group>"; };
+		0482EE5D2B95702400D950E9 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
+		0482EE5F2B9579E700D950E9 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		0482EE612B95830D00D950E9 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
+		0488AFE32B96904600D26B11 /* History_2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_2_ViewController.swift; sourceTree = "<group>"; };
 		04AD901B2B93C83E00ED4F10 /* CashRegister_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashRegister_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AD901E2B93C83E00ED4F10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04AD90202B93C83E00ED4F10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,10 +72,15 @@
 				04AD90202B93C83E00ED4F10 /* SceneDelegate.swift */,
 				04AD90222B93C83E00ED4F10 /* ViewController.swift */,
 				04AD90242B93C83E00ED4F10 /* Main.storyboard */,
+				0482EE612B95830D00D950E9 /* HistoryEntry.swift */,
+				0482EE5F2B9579E700D950E9 /* HistoryViewController.swift */,
+				0482EE5D2B95702400D950E9 /* ManagerViewController.swift */,
+				0482EE5B2B955A2500D950E9 /* productTableViewCell.swift */,
 				04AD90272B93C83F00ED4F10 /* Assets.xcassets */,
 				04AD90292B93C83F00ED4F10 /* LaunchScreen.storyboard */,
 				04AD902C2B93C83F00ED4F10 /* Info.plist */,
 				04FC39212B93D21900FF8D53 /* Product.swift */,
+				0488AFE32B96904600D26B11 /* History_2_ViewController.swift */,
 			);
 			path = CashRegister_1;
 			sourceTree = "<group>";
@@ -141,9 +156,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0482EE5E2B95702400D950E9 /* ManagerViewController.swift in Sources */,
+				0482EE622B95830D00D950E9 /* HistoryEntry.swift in Sources */,
 				04AD90232B93C83E00ED4F10 /* ViewController.swift in Sources */,
 				04FC39222B93D21900FF8D53 /* Product.swift in Sources */,
+				0482EE5C2B955A2500D950E9 /* productTableViewCell.swift in Sources */,
 				04AD901F2B93C83E00ED4F10 /* AppDelegate.swift in Sources */,
+				0488AFE42B96904600D26B11 /* History_2_ViewController.swift in Sources */,
+				0482EE602B9579E700D950E9 /* HistoryViewController.swift in Sources */,
 				04AD90212B93C83E00ED4F10 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

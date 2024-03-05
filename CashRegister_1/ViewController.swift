@@ -20,9 +20,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Array to hold products
     var products: [Product] = []
+    
+    // Array to hold purchases
+    var history: [HistoryEntry] = []
+    
+    var newPurchase = HistoryEntry()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Cash Register App"
         // Populate the products array with random data
                 products = [
                     Product(name: "Hat", quantity: 20, price: 10.0),
@@ -43,12 +49,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? productTableViewCell
         
         let product = products[indexPath.row]
-        cell?.textLabel?.text = product.name
-        cell?.detailTextLabel?.text = "\(product.quantity)"
+        cell?.productNameLabel.text = product.name
+        cell?.productQuantityLabel.text = "\(product.quantity)"
+        cell?.productPriceLabel.text = "\(product.price)"
         return cell!
         
     }
@@ -92,6 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         guard let selectedProduct = selectedProductLabel.text,
               let selectedQuantity = Int(quantityLabel.text!),
+              let totalAmount = Double(totalAmountLabel.text!),
                let product = products.first(where: { $0.name == selectedProduct }) else {
             print("test guard at buy clicked")
              return
@@ -107,6 +120,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             quantityLabel.text = "Quantity"
             totalAmountLabel.text = "Total"
         } else {
+            // Initialize newPurchase object with default values
+                newPurchase = HistoryEntry()
+            // After purchase is made...
+            newPurchase.productName = selectedProduct
+            newPurchase.quantity = selectedQuantity
+            newPurchase.totalPrice = totalAmount
+            newPurchase.purchaseDate = Date()
+            
+            history.append(newPurchase)
+            print("from Buy: \(history)")
+      
             let initialQuantity = product.quantity
             product.quantity = initialQuantity - selectedQuantity
             productsTable.reloadData()
@@ -118,6 +142,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
     }
+  
+//    pass purchase data to the manager VC
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "managerSegue" {
+            if let managerVC = segue.destination as? ManagerViewController {
+                managerVC.history = history
+                print("from VC-Prepare: \(managerVC.history)")
+            }
+        }
+    }
+
     
     
 
