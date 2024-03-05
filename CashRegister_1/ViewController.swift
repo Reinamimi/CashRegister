@@ -18,8 +18,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var productsTable: UITableView!
     
-    // Array to hold products
-    var products: [Product] = []
+    
+    // Accessing the product array from the singleton
+    let products = ProductManager.shared.getAllProducts()
     
     // Array to hold purchases
     var history: [HistoryEntry] = []
@@ -30,13 +31,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.title = "Cash Register App"
         // Populate the products array with random data
-                products = [
-                    Product(name: "Hat", quantity: 20, price: 10.0),
-                    Product(name: "Shirt", quantity: 15, price: 20.0),
-                    Product(name: "Pants", quantity: 10, price: 30.0),
-                    Product(name: "Shoes", quantity: 25, price: 40.0),
-                    Product(name: "Socks", quantity: 30, price: 5.0)
-                ]
+//                products = [
+//                    Product(name: "Hat", quantity: 20, price: 10.0),
+//                    Product(name: "Shirt", quantity: 15, price: 20.0),
+//                    Product(name: "Pants", quantity: 10, price: 30.0),
+//                    Product(name: "Shoes", quantity: 25, price: 40.0),
+//                    Product(name: "Socks", quantity: 30, price: 5.0)
+//                ]
                 
                 // Reload table view data after populating products
                 productsTable.reloadData()
@@ -130,9 +131,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             history.append(newPurchase)
             print("from Buy: \(history)")
-      
+            
+//      Update product quantiity
             let initialQuantity = product.quantity
-            product.quantity = initialQuantity - selectedQuantity
+            let newQuantity = initialQuantity - selectedQuantity
+            product.quantity = newQuantity
+            // updating product's quantity in the singleton
+            ProductManager.shared.updateProduct(product: product, newQuantity: newQuantity)
+            
+//            reload table and reset fields
             productsTable.reloadData()
             selectedProductLabel.text = "Type"
             quantityLabel.text = "Quantity"
